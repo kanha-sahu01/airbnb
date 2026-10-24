@@ -1,0 +1,69 @@
+<%- layout("/layout/boilerplate.ejs") %>
+
+<style>
+  .filters{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    align-items: center;
+  }
+  .filter{
+    min-width: 64px;
+    margin-top: 10px;
+    opacity: 0.8;
+    text-align: center;
+  }
+  .filter:hover{
+    opacity: 1;
+  }
+  .filter i{
+    font-size: 1.25rem;
+  }
+  .tax-toggle{
+    border: 1px solid black;
+    padding:1rem;
+    border-radius: 1rem;
+    margin: 1rem 3rem;
+  }
+</style>
+<div class="filters">
+  <div class="filter"><div><i class="fa-solid fa-fire"></i></div><p>Trending</p></div>
+  <div class="filter"><div><i class="fa-solid fa-bed"></i></div><p>Room</p></div>
+  <div class="filter"><div><i class="fa-solid fa-mountain"></i></div><p>Mountains</p></div>
+  <div class="filter"><div><i class="fa-solid fa-umbrella-beach"></i></div><p>Beach</p></div>
+  <div class="filter"><div><i class="fa-solid fa-city"></i></div><p>City</p></div>
+  <div class="filter"><div><i class="fa-solid fa-person-swimming"></i></div><p>Pool</p></div>
+  <div class="filter"><div><i class="fa-solid fa-campground"></i></div><p>Camping</p></div>
+  <div class="filter"><div><i class="fa-solid fa-chess-rook"></i></div><p>Castles</p></div>
+  <div class="filter"><div><i class="fa-solid fa-wheat-awn"></i></div><p>Farms</p></div>
+
+  <div class="tax-toggle">
+  <div class="form-check form-switch form-check-reverse">
+  <input class="form-check-input toggle-switch" type="checkbox" role="switch" id="switchCheckDefault">
+  <label class="form-check-label" for="switchCheckDefault">Total after tax</label></div>
+</div>
+</div>
+
+
+   <div class=" row   row-cols-lg-3">
+   <% for(let list of lists) {%>
+   
+    <a href="/listing/<%=list.id %>" class="listing-link">
+  <div class="listing-card">
+  <img src="<%= list.image.url %>" class="card-img-top" alt="list-image" style="height:18rem">
+  <div class="card-body">
+    <p class="card-text"><b><%= list.title %></b> <br> ₹<%= list.price.toLocaleString("en-IN")%></p><i class="gst d-none">&nbsp; +18%</i>
+  </div>
+</div></a> <% } %></div>
+
+ <script>
+   const taxSwitch = document.querySelector(".toggle-switch");
+   const gstLabels = document.querySelectorAll(".gst");
+
+   taxSwitch.addEventListener("change", () => {
+     gstLabels.forEach((gstLabel) => {
+       gstLabel.classList.toggle("d-none", !taxSwitch.checked);
+     });
+   });
+ </script>
+  

@@ -1,0 +1,68 @@
+body{
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+
+}
+.navbar{
+    background-color: azure;
+    min-height: 5rem;
+}
+.nav-link{
+    color: black !important;
+}
+.fa-compass{
+    color: rgb(185, 21, 21);
+}
+.f-info{
+    height:8rem;
+    display:flex;
+  flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(216, 200, 200, 0.758);
+     
+}
+.f-socials{
+   font-size: 1.2rem;
+}
+.f-socials i{
+    margin-left: 1rem;
+}
+.f-links a{
+    text-decoration: none;
+    margin-left: 0.4rem;
+}
+.f-links a:hover{
+    text-decoration: underline;
+}
+.card-img-top{
+    border-radius:1rem !important;
+}
+.listing-card{
+    border:none !important;
+   
+}
+.listing-link{
+     text-decoration:none !important;
+}
+.card-img-top:hover{
+   opacity: 0.8 !important;
+}
+.body{
+    flex:1;
+}
+.btns{
+    display: flex;
+}
+.show-img{
+    height: 50vh;
+
+}
+
+/* map */
+
+#map{
+    height:400px;
+    width:80vh;
+}
