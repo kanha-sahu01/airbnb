@@ -52,10 +52,7 @@ app.engine("ejs", ejsMate);
 app.use(express.static(path.join(__dirname, "public")))
 
 
-// Root -------------------------------------
-app.get("/", (req, res) => {
-    res.send("This is root directory");
-})
+
 
 app.use(session(sessionOptions))
 app.use(flash());
